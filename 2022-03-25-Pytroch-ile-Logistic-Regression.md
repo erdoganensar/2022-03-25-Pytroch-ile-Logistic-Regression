@@ -33,3 +33,7 @@ y_head(tahmin)=sigmoid(z)
 Kısaca Logistic Regressiondan bahsettikten sonra artık Pytorch ile nasıl model oluşturulur adım adım ilerleyelim.
 
 # Dataset
+
+Kullanılan veri seti kaggle'dan elde edilmiştir. Link bilgisi aşağıdaki gibidir.
+
+![https://www.kaggle.com/datasets/zalando-research/fashionmnist]
