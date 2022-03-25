@@ -44,3 +44,9 @@ içerisinde 10 sınıf barındırıan bir veri setidir. Burada piksel değerleri
 Adım adım önce veri ön işleme basamaklarından gerçirilir ve model oluşturularak tahmin değerleri elde edilir.
 
     train=pd.read_csv('/kaggle/input/fashionmnist/fashion-mnist_train.csv',dtype=np.float32) 
+    
+    train.head()
+    
+ <img src="src1.png">
+ 
+ 
