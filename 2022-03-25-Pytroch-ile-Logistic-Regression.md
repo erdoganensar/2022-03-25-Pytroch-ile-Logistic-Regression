@@ -49,4 +49,8 @@ Adım adım önce veri ön işleme basamaklarından gerçirilir ve model oluştu
     
  <img src="src1.png">
  
- 
+    test=pd.read_csv('/kaggle/input/fashionmnist/fashion-mnist_test.csv',dtype=np.float32)
+    
+    test.head()
+    
+ <img src="src2.png">    
