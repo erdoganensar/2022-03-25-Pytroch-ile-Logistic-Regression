@@ -29,3 +29,7 @@ z=(w.t)x+b
 Bu aşamadan sonra a çıktısı bir tane activasyon fonksiyonuna eklenerek y_head(tahmin) değeri alde edilmiş olur.
 
 y_head(tahmin)=sigmoid(z)
+
+Kısaca Logistic Regressiondan bahsettikten sonra artık Pytorch ile nasıl model oluşturulur adım adım ilerleyelim.
+
+# Dataset
