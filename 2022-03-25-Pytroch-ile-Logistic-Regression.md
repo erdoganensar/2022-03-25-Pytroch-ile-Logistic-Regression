@@ -66,3 +66,26 @@ Veri setini sklearn kütüphanesi kullanarak %80 train,%20 test olarak bölünm�
                                                                       target_numpy,
                                                                       test_size=0.2,
                                                                       random_state=42)
+Bölümlere ayrılan veri setleri pytorch kütüphenesinin kullanabilmesi için Tensor dönüştürülmesi gerekmektedir. Bunun için "from_numpy" kullanılmaktadır. "type(torch.LongTensor) büyük veri setlerin de kullanılmaktadır."                                                   
+                                                   
+                                                                      
+    featuresTrain=torch.from_numpy(features_train)
+    targetTrain=torch.from_numpy(target_train).type(torch.LongTensor)
+
+    featuresTest=torch.from_numpy(features_test)
+    targetTest=torch.from_numpy(target_test).type(torch.LongTensor)
+    
+Batch_size: Veri kümesini kaç gruba bölmesi gerektigi belirtilir. number_of_iteration= Kaç iterasyon çalıştırılmsı gerektiği num_epochs= 1 epoch da toplam iterasyonun,toplam futures/batch_size bölünmesidir.    
+
+    batch_size=300
+    number_of_iterarion=30000
+    num_epochs=number_of_iterarion/(len(features_train)/batch_size)
+    num_epochs=int(num_epochs)
+    
+    train=torch.utils.data.TensorDataset(featuresTrain,targetTrain)
+    test=torch.utils.data.TensorDataset(featuresTest,targetTest)
+                                                                      
+Veri ön işleme kısmında son adım olarak tensor dönüştürülen verilerin pytorch tarafından kullanılabilmesi için DataLoader olarak depolanması gerekmektedir. "shuffle" datayı karıştırıp karıştırılmamsı için kullanılmaktadır.
+
+    train_loader=DataLoader(train,batch_size,shuffle=False)
+    test_loader=DataLoader(test,batch_size,shuffle=False)
