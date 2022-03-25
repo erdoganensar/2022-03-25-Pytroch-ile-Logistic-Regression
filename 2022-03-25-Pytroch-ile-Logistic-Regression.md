@@ -89,3 +89,13 @@ Veri ön işleme kısmında son adım olarak tensor dönüştürülen verilerin 
 
     train_loader=DataLoader(train,batch_size,shuffle=False)
     test_loader=DataLoader(test,batch_size,shuffle=False)
+    
+    import matplotlib.pyplot as plt
+    plt.imshow(features_numpy[1].reshape(28,28))
+    plt.axis("off")
+    plt.savefig("graph.png")
+    plt.show()
+    
+ <img src="src3.png">   
+ 
+ 
