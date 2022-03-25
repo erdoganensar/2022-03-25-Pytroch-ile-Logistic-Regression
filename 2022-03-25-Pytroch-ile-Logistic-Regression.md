@@ -98,4 +98,28 @@ Veri ön işleme kısmında son adım olarak tensor dönüştürülen verilerin 
     
  <img src="src3.png">   
  
- 
+Bu aşamada artık model oluşturulmaya başlanır. Logistic regression da linear regression gibi kullanılıp sonrasında bir activation fonksiyonu kullanarak farklılaşmaktadır. Bu da genellikle "softmax" fonksiyonudur. O yüzden model kurulurken linear gibi düşünülebilir. Loss degeri için "CrossEntropyLoss" kullanılır. Bunun sebebi ise çoklu sınıflandırma problemlerinde tercih edilir.
+
+    class LogisticRegModel(nn.Module):
+        def __init__(self,input_dim,output_dim):
+            super(LogisticRegModel,self).__init__()
+            self.linear=nn.Linear(input_dim,output_dim)
+        
+        def forward(self,x):
+            out=self.linear(x)
+            return out
+    
+    input_dim=28*28
+    output_dim=10
+
+    #Model
+    model=LogisticRegModel(input_dim,output_dim)
+
+    #Loss
+    error=nn.CrossEntropyLoss()
+
+    #optimizer
+    learning_rate=0.001
+    optimizer=torch.optim.SGD(model.parameters(),lr=learning_rate)    
+    
+    
