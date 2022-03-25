@@ -122,4 +122,63 @@ Bu aşamada artık model oluşturulmaya başlanır. Logistic regression da linea
     learning_rate=0.001
     optimizer=torch.optim.SGD(model.parameters(),lr=learning_rate)    
     
-    
+ Model oluşturulduktan sonra Traning işlemine geçilebilir.
+ 
+    count=0
+    loss_list=[]
+    iteration_list=[]
+
+    for epoch in range(num_epochs):
+        for i,(images,labels) in enumerate(train_loader):
+        
+            #variables
+            train=Variable(images.view(-1,28*28))
+            labels=Variable(labels)
+        
+            #clear gradient
+            optimizer.zero_grad()
+        
+            #Forward
+            outputs=model(train)
+        
+            #softmax and cross entropy loss
+            loss=error(outputs,labels)
+        
+            #gradient hesapla
+            loss.backward()
+        
+            #update parameters
+            optimizer.step()
+        
+            count +=1
+        
+            #Tahmin
+            if count % 50 == 0:
+                correct=0
+                total=0
+                #Tahmin test veri seti
+                for images,labels in test_loader:
+                    test=Variable(images.view(-1,28*28))
+                
+                    #Forward
+                    outputs=model(test)
+                
+                    #En iyi tahmin degeri
+                    predicted=torch.max(outputs.data,1)[1]
+                
+                    #toplam labels
+                    total += len(labels)
+                
+                    #toplam dogru tahmin
+                    correct +=(predicted == labels).sum()
+            
+            
+                accuracy= 100 * correct / float(total)
+            
+                loss_list.append(loss.data)
+                iteration_list.append(count)
+            
+            if count % 500 == 0:
+                print('Iteration {} Loss {} Accuracy {}%'.format(count,loss.data,accuracy))
+                
+                
