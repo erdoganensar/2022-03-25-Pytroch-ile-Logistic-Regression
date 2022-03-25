@@ -21,3 +21,11 @@ algoritmalarından farkı tek katmanlı olmasıdır. İlerleyen yazılarda katma
   -Logistic Regression Hesaplama Grafiği
      
  <img src="logistic_regression_image_2.png">
+
+Genel Olarak Logistic Regression girdilerin weight'lerin transpozu ile çarpılarak üzerine de bias eklenerek çalışmaktadır. 
+
+z=(w.t)x+b
+
+Bu aşamadan sonra a çıktısı bir tane activasyon fonksiyonuna eklenerek y_head(tahmin) değeri alde edilmiş olur.
+
+y_head(tahmin)=sigmoid(z)
