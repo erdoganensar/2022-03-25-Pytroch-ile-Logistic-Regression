@@ -20,4 +20,4 @@ algoritmalarından farkı tek katmanlı olmasıdır. İlerleyen yazılarda katma
 
   -Logistic Regression Hesaplama Grafiği
      
-    ![logistic_regression_image1](https://user-images.githubusercontent.com/67780763/160071082-8d0ea01b-2a03-4772-a2c7-131edcbc227d.png)
+    ![](logistic_regression_image1.png)
